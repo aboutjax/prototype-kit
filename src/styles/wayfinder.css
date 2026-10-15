@@ -1,0 +1,717 @@
+/*
+ * Wayfinder design tokens, ported from nav-inc/typescript
+ * packages/base-react-components/src/wayfinder/theme.css
+ *
+ * Differences from the source:
+ * - Tailwind's default color/spacing/radius/shadow scales are NOT reset, so shadcn
+ *   components (h-9, px-3, rounded-md, ...) keep working. Wayfinder keys are added
+ *   alongside them (p-100, gap-200, rounded-300, shadow-elevation2, ...).
+ * - Prime gradient @property/animations and pipsqueak app-specific styles are omitted.
+ */
+
+@theme {
+  --default-font-family: Inter, sans-serif;
+
+  /* Spacing (p-100 = 8px, gap-200 = 16px, ...) */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-75: 6px;
+  --spacing-100: 8px;
+  --spacing-125: 10px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-350: 28px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+
+  /* Border radius */
+  --radius-0: 0;
+  --radius-100: 4px;
+  --radius-200: 6px;
+  --radius-300: 8px;
+  --radius-400: 12px;
+  --radius-500: 16px;
+  --radius-600: 20px;
+  --radius-700: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-elevation1: 0 0 0 1px rgb(0 0 0 / 10%), 0 4px 1px -2px rgb(0 0 0 / 8%);
+  --shadow-elevation2:
+    0 0 0 1px rgb(0 0 0 / 10%), 0 4px 4px -2px rgb(0 0 0 / 5%), 0 8px 8px -4px rgb(0 0 0 / 5%),
+    0 16px 16px -8px rgb(0 0 0 / 5%);
+  --shadow-elevation3:
+    0 0 0 1px rgb(0 0 0 / 10%), 0 8px 8px -4px rgb(0 0 0 / 5%), 0 16px 16px -8px rgb(0 0 0 / 5%),
+    0 32px 32px -16px rgb(0 0 0 / 5%);
+  --shadow-elevation4:
+    0 0 0 1px rgb(0 0 0 / 10%), 0 16px 16px -16px rgb(0 0 0 / 5%), 0 32px 32px -16px rgb(0 0 0 / 5%),
+    0 64px 64px -32px rgb(0 0 0 / 5%);
+  --shadow-buttonActive: 0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 4px 1px -2px rgba(0, 0, 0, 0.08);
+
+  /* Font families (font-primary, font-secondary) */
+  --font-primary: Inter, sans-serif;
+  --font-secondary: Manrope, sans-serif;
+  --font-sans: var(--font-primary);
+  --font-heading: var(--font-primary);
+
+  --font-weight-inherit: inherit;
+
+  /* Type ramp (consumed by the typography utilities below) */
+  --font-size-display1: 45px;
+  --font-size-display1--line-height: 52px;
+  --font-size-display1--letter-spacing: -0.5px;
+
+  --font-size-display2: 36px;
+  --font-size-display2--line-height: 42px;
+  --font-size-display2--letter-spacing: -0.5px;
+
+  --font-size-title1: 28px;
+  --font-size-title1--line-height: 34px;
+  --font-size-title1--letter-spacing: -0.25px;
+
+  --font-size-title2: 22px;
+  --font-size-title2--line-height: 28px;
+  --font-size-title2--letter-spacing: -0.25px;
+
+  --font-size-title3: 20px;
+  --font-size-title3--line-height: 28px;
+  --font-size-title3--letter-spacing: 0;
+
+  --font-size-headline: 16px;
+  --font-size-headline--line-height: 22px;
+  --font-size-headline--letter-spacing: 0;
+
+  --font-size-body1: 16px;
+  --font-size-body1--line-height: 22px;
+  --font-size-body1--letter-spacing: -0.25px;
+
+  --font-size-body2: 14px;
+  --font-size-body2--line-height: 20px;
+  --font-size-body2--letter-spacing: -0.25px;
+
+  --font-size-caption1: 12px;
+  --font-size-caption1--line-height: 16px;
+  --font-size-caption1--letter-spacing: 0;
+
+  --font-size-caption2: 11px;
+  --font-size-caption2--line-height: 13px;
+  --font-size-caption2--letter-spacing: 0;
+
+  /* Breakpoints (match Wayfinder; xl/2xl keep Tailwind defaults) */
+  --breakpoint-sm: 768px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-desktop: 1280px;
+
+  --color-neutral10: #1b1b1f;
+
+  --background-image-primary-linear-gradient: linear-gradient(173deg, rgba(206, 203, 245, 0.05) 20.4%, #cecbf5 279.42%);
+
+  /* Prime colors (shared across themes) */
+  --color-prime: #6ad1e3;
+  --color-primeDim: #395a8a;
+  --color-onPrime: #1f2651;
+  --color-primeContainer: #121027;
+  --color-onPrimeContainer: #fdffff;
+
+  /* Light palette */
+  --color-light-error: #9a414a;
+  --color-light-onError: #fff6f7;
+  --color-light-errorContainer: #ffd1d2;
+  --color-light-onErrorContainer: #732a33;
+  --color-light-errorBright: #d83025;
+
+  --color-light-warn: #6c623f;
+  --color-light-onWarn: #ffffbd;
+  --color-light-warnContainer: #f4dd90;
+  --color-light-onWarnContainer: #4d462f;
+  --color-light-warnBright: #f9ab00;
+
+  --color-light-success: #3f6e54;
+  --color-light-onSuccess: #f8fffc;
+  --color-light-successContainer: #d2e4d9;
+  --color-light-onSuccessContainer: #3f6e54;
+  --color-light-successBright: #198039;
+
+  --color-light-super: #598889;
+  --color-light-onSuper: #f4ffff;
+  --color-light-superContainer: #cce2e2;
+  --color-light-onSuperContainer: #0b4f51;
+  --color-light-superBright: #2cb3b6;
+
+  --color-light-info: #38639c;
+  --color-light-onInfo: #f2ffff;
+  --color-light-infoContainer: #cbe0fc;
+  --color-light-onInfoContainer: #38639c;
+  --color-light-infoBright: #1b72e4;
+
+  --color-light-primary: #5e4db2;
+  --color-light-onPrimary: #fbfaff;
+  --color-light-primaryContainer: #d9d6ff;
+  --color-light-onPrimaryContainer: #433487;
+  --color-light-inversePrimary: #b8b4f3;
+  --color-light-primaryDim: #2a1c5e;
+  --color-light-primaryBright: #705cd6;
+  --color-light-primarySurface: #f2eeff;
+
+  --color-light-background: #fbfafb;
+  --color-light-surface: #ffffff;
+  --color-light-surfaceDim: #efefef;
+  --color-light-surfaceBright: #ffffff;
+  --color-light-surfaceContainer: #ffffff;
+  --color-light-surfaceContainerLow: #f5f4f5;
+  --color-light-surfaceContainerLowest: #efefef;
+  --color-light-surfaceContainerHigh: #ffffff;
+  --color-light-surfaceContainerHighest: #ffffff;
+  --color-light-onSurface: #1b1b1f;
+  --color-light-onSurfaceVariant: #5e5d67;
+  --color-light-onSurfaceDim: #adabae;
+  --color-light-outline: #777680;
+  --color-light-outlineVariant: #dcdbdc;
+  --color-light-inverseSurface: #303034;
+  --color-light-inverseOnSurface: #f2f2f2;
+
+  /* Dark palette */
+  --color-dark-error: #e7acae;
+  --color-dark-onError: #4f151d;
+  --color-dark-errorContainer: #732a33;
+  --color-dark-onErrorContainer: #ffd1d2;
+  --color-dark-errorBright: #f28b82;
+
+  --color-dark-warn: #d2bd73;
+  --color-dark-onWarn: #302c1f;
+  --color-dark-warnContainer: #4d462f;
+  --color-dark-onWarnContainer: #f4dd90;
+  --color-dark-warnBright: #ffc74d;
+
+  --color-dark-success: #87a894;
+  --color-dark-onSuccess: #053620;
+  --color-dark-successContainer: #1b5337;
+  --color-dark-onSuccessContainer: #d2e4d9;
+  --color-dark-successBright: #6fdc8d;
+
+  --color-dark-super: #7ea5a6;
+  --color-dark-onSuper: #003335;
+  --color-dark-superContainer: #326b6d;
+  --color-dark-onSuperContainer: #cce2e2;
+  --color-dark-superBright: #4cebeb;
+
+  --color-dark-info: #a5c0e4;
+  --color-dark-onInfo: #0e2c52;
+  --color-dark-infoContainer: #38639c;
+  --color-dark-onInfoContainer: #cbe0fc;
+  --color-dark-infoBright: #66a5fa;
+
+  --color-dark-primary: #7a6fc8;
+  --color-dark-onPrimary: #fbfaff;
+  --color-dark-primaryContainer: #5e4db2;
+  --color-dark-onPrimaryContainer: #d9d6ff;
+  --color-dark-inversePrimary: #433487;
+  --color-dark-primaryDim: #b8b4f3;
+  --color-dark-primaryBright: #938cf2;
+  --color-dark-primarySurface: #2f2166;
+
+  --color-dark-background: #0e0e11;
+  --color-dark-surface: #131316;
+  --color-dark-surfaceDim: #1f1f23;
+  --color-dark-surfaceBright: #39393c;
+  --color-dark-surfaceContainer: #1f1f23;
+  --color-dark-surfaceContainerLow: #1b1b1f;
+  --color-dark-surfaceContainerLowest: #0e0e11;
+  --color-dark-surfaceContainerHigh: #2a2a2d;
+  --color-dark-surfaceContainerHighest: #353438;
+  --color-dark-onSurface: #e4e3e4;
+  --color-dark-onSurfaceVariant: #c7c5d0;
+  --color-dark-onSurfaceDim: #47464a;
+  --color-dark-outline: #91909a;
+  --color-dark-outlineVariant: #47464a;
+  --color-dark-inverseSurface: #e4e3e4;
+  --color-dark-inverseOnSurface: #303034;
+}
+
+/*
+ * Active semantic colors (bg-primary, text-onSurface, ...). Light by default,
+ * swapped by the .dark block below. `static` keeps every variable in the output
+ * even if no utility references it, so they are always usable from CSS/JS.
+ */
+@theme static {
+  --color-error: var(--color-light-error);
+  --color-onError: var(--color-light-onError);
+  --color-errorContainer: var(--color-light-errorContainer);
+  --color-onErrorContainer: var(--color-light-onErrorContainer);
+  --color-errorBright: var(--color-light-errorBright);
+
+  --color-warn: var(--color-light-warn);
+  --color-onWarn: var(--color-light-onWarn);
+  --color-warnContainer: var(--color-light-warnContainer);
+  --color-onWarnContainer: var(--color-light-onWarnContainer);
+  --color-warnBright: var(--color-light-warnBright);
+
+  --color-success: var(--color-light-success);
+  --color-onSuccess: var(--color-light-onSuccess);
+  --color-successContainer: var(--color-light-successContainer);
+  --color-onSuccessContainer: var(--color-light-onSuccessContainer);
+  --color-successBright: var(--color-light-successBright);
+
+  --color-super: var(--color-light-super);
+  --color-onSuper: var(--color-light-onSuper);
+  --color-superContainer: var(--color-light-superContainer);
+  --color-onSuperContainer: var(--color-light-onSuperContainer);
+  --color-superBright: var(--color-light-superBright);
+
+  --color-info: var(--color-light-info);
+  --color-onInfo: var(--color-light-onInfo);
+  --color-infoContainer: var(--color-light-infoContainer);
+  --color-onInfoContainer: var(--color-light-onInfoContainer);
+  --color-infoBright: var(--color-light-infoBright);
+
+  --color-primary: var(--color-light-primary);
+  --color-onPrimary: var(--color-light-onPrimary);
+  --color-primaryContainer: var(--color-light-primaryContainer);
+  --color-onPrimaryContainer: var(--color-light-onPrimaryContainer);
+  --color-inversePrimary: var(--color-light-inversePrimary);
+  --color-primaryDim: var(--color-light-primaryDim);
+  --color-primaryBright: var(--color-light-primaryBright);
+  --color-primarySurface: var(--color-light-primarySurface);
+
+  --color-background: var(--color-light-background);
+  --color-surface: var(--color-light-surface);
+  --color-surfaceDim: var(--color-light-surfaceDim);
+  --color-surfaceBright: var(--color-light-surfaceBright);
+  --color-surfaceContainer: var(--color-light-surfaceContainer);
+  --color-surfaceContainerLow: var(--color-light-surfaceContainerLow);
+  --color-surfaceContainerLowest: var(--color-light-surfaceContainerLowest);
+  --color-surfaceContainerHigh: var(--color-light-surfaceContainerHigh);
+  --color-surfaceContainerHighest: var(--color-light-surfaceContainerHighest);
+  --color-onSurface: var(--color-light-onSurface);
+  --color-onSurfaceVariant: var(--color-light-onSurfaceVariant);
+  --color-onSurfaceDim: var(--color-light-onSurfaceDim);
+  --color-outline: var(--color-light-outline);
+  --color-outlineVariant: var(--color-light-outlineVariant);
+  --color-inverseSurface: var(--color-light-inverseSurface);
+  --color-inverseOnSurface: var(--color-light-inverseOnSurface);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+.dark {
+  --color-error: var(--color-dark-error);
+  --color-onError: var(--color-dark-onError);
+  --color-errorContainer: var(--color-dark-errorContainer);
+  --color-onErrorContainer: var(--color-dark-onErrorContainer);
+  --color-errorBright: var(--color-dark-errorBright);
+
+  --color-warn: var(--color-dark-warn);
+  --color-onWarn: var(--color-dark-onWarn);
+  --color-warnContainer: var(--color-dark-warnContainer);
+  --color-onWarnContainer: var(--color-dark-onWarnContainer);
+  --color-warnBright: var(--color-dark-warnBright);
+
+  --color-success: var(--color-dark-success);
+  --color-onSuccess: var(--color-dark-onSuccess);
+  --color-successContainer: var(--color-dark-successContainer);
+  --color-onSuccessContainer: var(--color-dark-onSuccessContainer);
+  --color-successBright: var(--color-dark-successBright);
+
+  --color-super: var(--color-dark-super);
+  --color-onSuper: var(--color-dark-onSuper);
+  --color-superContainer: var(--color-dark-superContainer);
+  --color-onSuperContainer: var(--color-dark-onSuperContainer);
+  --color-superBright: var(--color-dark-superBright);
+
+  --color-info: var(--color-dark-info);
+  --color-onInfo: var(--color-dark-onInfo);
+  --color-infoContainer: var(--color-dark-infoContainer);
+  --color-onInfoContainer: var(--color-dark-onInfoContainer);
+  --color-infoBright: var(--color-dark-infoBright);
+
+  --color-primary: var(--color-dark-primary);
+  --color-onPrimary: var(--color-dark-onPrimary);
+  --color-primaryContainer: var(--color-dark-primaryContainer);
+  --color-onPrimaryContainer: var(--color-dark-onPrimaryContainer);
+  --color-inversePrimary: var(--color-dark-inversePrimary);
+  --color-primaryDim: var(--color-dark-primaryDim);
+  --color-primaryBright: var(--color-dark-primaryBright);
+  --color-primarySurface: var(--color-dark-primarySurface);
+
+  --color-background: var(--color-dark-background);
+  --color-surface: var(--color-dark-surface);
+  --color-surfaceDim: var(--color-dark-surfaceDim);
+  --color-surfaceBright: var(--color-dark-surfaceBright);
+  --color-surfaceContainer: var(--color-dark-surfaceContainer);
+  --color-surfaceContainerLow: var(--color-dark-surfaceContainerLow);
+  --color-surfaceContainerLowest: var(--color-dark-surfaceContainerLowest);
+  --color-surfaceContainerHigh: var(--color-dark-surfaceContainerHigh);
+  --color-surfaceContainerHighest: var(--color-dark-surfaceContainerHighest);
+  --color-onSurface: var(--color-dark-onSurface);
+  --color-onSurfaceVariant: var(--color-dark-onSurfaceVariant);
+  --color-onSurfaceDim: var(--color-dark-onSurfaceDim);
+  --color-outline: var(--color-dark-outline);
+  --color-outlineVariant: var(--color-dark-outlineVariant);
+  --color-inverseSurface: var(--color-dark-inverseSurface);
+  --color-inverseOnSurface: var(--color-dark-inverseOnSurface);
+}
+
+/* Typography: text-<size> (size/leading/tracking only, normal weight) */
+@utility text-display1 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display1);
+  line-height: var(--font-size-display1--line-height);
+  letter-spacing: var(--font-size-display1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-display2 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display2);
+  line-height: var(--font-size-display2--line-height);
+  letter-spacing: var(--font-size-display2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-title1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title1);
+  line-height: var(--font-size-title1--line-height);
+  letter-spacing: var(--font-size-title1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-title2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title2);
+  line-height: var(--font-size-title2--line-height);
+  letter-spacing: var(--font-size-title2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-title3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title3);
+  line-height: var(--font-size-title3--line-height);
+  letter-spacing: var(--font-size-title3--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-headline {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-headline);
+  line-height: var(--font-size-headline--line-height);
+  letter-spacing: var(--font-size-headline--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility text-body1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body1);
+  line-height: var(--font-size-body1--line-height);
+  letter-spacing: var(--font-size-body1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-body2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body2);
+  line-height: var(--font-size-body2--line-height);
+  letter-spacing: var(--font-size-body2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-caption1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption1);
+  line-height: var(--font-size-caption1--line-height);
+  letter-spacing: var(--font-size-caption1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-caption2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption2);
+  line-height: var(--font-size-caption2--line-height);
+  letter-spacing: var(--font-size-caption2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Typography shorthand (preferred): title2-emphasized, body2, caption1-uppercase, ... */
+@utility display1 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display1);
+  line-height: var(--font-size-display1--line-height);
+  letter-spacing: var(--font-size-display1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility display1-emphasized {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display1);
+  line-height: var(--font-size-display1--line-height);
+  letter-spacing: var(--font-size-display1--letter-spacing);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility display2 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display2);
+  line-height: var(--font-size-display2--line-height);
+  letter-spacing: var(--font-size-display2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility display2-emphasized {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-display2);
+  line-height: var(--font-size-display2--line-height);
+  letter-spacing: var(--font-size-display2--letter-spacing);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility title1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title1);
+  line-height: var(--font-size-title1--line-height);
+  letter-spacing: var(--font-size-title1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility title1-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title1);
+  line-height: var(--font-size-title1--line-height);
+  letter-spacing: var(--font-size-title1--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility title2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title2);
+  line-height: var(--font-size-title2--line-height);
+  letter-spacing: var(--font-size-title2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility title2-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title2);
+  line-height: var(--font-size-title2--line-height);
+  letter-spacing: var(--font-size-title2--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility title3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title3);
+  line-height: var(--font-size-title3--line-height);
+  letter-spacing: var(--font-size-title3--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility title3-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-title3);
+  line-height: var(--font-size-title3--line-height);
+  letter-spacing: var(--font-size-title3--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility headline {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-headline);
+  line-height: var(--font-size-headline--line-height);
+  letter-spacing: var(--font-size-headline--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility headline-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-headline);
+  line-height: var(--font-size-headline--line-height);
+  letter-spacing: var(--font-size-headline--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility body1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body1);
+  line-height: var(--font-size-body1--line-height);
+  letter-spacing: var(--font-size-body1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility body1-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body1);
+  line-height: var(--font-size-body1--line-height);
+  letter-spacing: var(--font-size-body1--letter-spacing);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility body2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body2);
+  line-height: var(--font-size-body2--line-height);
+  letter-spacing: var(--font-size-body2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility body2-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body2);
+  line-height: var(--font-size-body2--line-height);
+  letter-spacing: var(--font-size-body2--letter-spacing);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility caption1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption1);
+  line-height: var(--font-size-caption1--line-height);
+  letter-spacing: var(--font-size-caption1--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility caption1-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption1);
+  line-height: var(--font-size-caption1--line-height);
+  letter-spacing: var(--font-size-caption1--letter-spacing);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility caption1-uppercase {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption1);
+  line-height: var(--font-size-caption1--line-height);
+  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+@utility caption2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption2);
+  line-height: var(--font-size-caption2--line-height);
+  letter-spacing: var(--font-size-caption2--letter-spacing);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility caption2-emphasized {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption2);
+  line-height: var(--font-size-caption2--line-height);
+  letter-spacing: var(--font-size-caption2--letter-spacing);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility caption2-uppercase {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption2);
+  line-height: var(--font-size-caption2--line-height);
+  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+@utility h-screen-dynamic {
+  height: 100vh;
+  height: 100dvh;
+}
+
+:root {
+  --nav-icon-size-small: 16px;
+  --nav-icon-size-medium: 20px;
+  --nav-icon-size-large: 24px;
+}
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-surfaceDim);
+    color: var(--color-onSurface);
+  }
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('https://design-assets.nav.com/fonts/Inter-Regular.woff2') format('woff2'),
+    url('https://design-assets.nav.com/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('https://design-assets.nav.com/fonts/Inter-Medium.woff2') format('woff2'),
+    url('https://design-assets.nav.com/fonts/Inter-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('https://design-assets.nav.com/fonts/Inter-SemiBold.woff2') format('woff2'),
+    url('https://design-assets.nav.com/fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('https://design-assets.nav.com/fonts/Inter-Bold.woff2') format('woff2'),
+    url('https://design-assets.nav.com/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('https://design-assets.nav.com/fonts/Manrope-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://design-assets.nav.com/fonts/Manrope-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('https://design-assets.nav.com/fonts/Manrope-Bold.woff2') format('woff2');
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import './styles/wayfinder.css';
+@import './styles/shadcn-bridge.css';
